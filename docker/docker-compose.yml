@@ -2,3 +2,5 @@ version: '3'
 services:
   udpserver:
     image: hellbruh/simple-udpserver
+    ports:
+      - "11211:11211/udp"
