@@ -10,17 +10,19 @@ to connect it to the bash and have it run as kind of telnet server (based on udp
 
 	ncat -v -e /bin/bash -k -u -l 11212
 
-if you do not want to install ncat use the dockerized versions in docker hub https://hub.docker.com/
+if you do not want to install ncat use the dockerized versions in docker hub https://hub.docker.com/ or build your own
 
-if you do not want to install ncat use the dockerized versions in docker hub https://hub.docker.com/
+## dockerized from docker hub ##
 
 	docker pull hellbruh/simple-udpserver
 	
 	docker run -it -p 11211:11211/udp hellbruh/simple-udpserver
-	
-you can kill and stop via Ctrl-P Ctrl-Q and docker stop (see below)
 
-or build you own image with [Dockerfile](./docker/Dockerfile) [here](./docker) provided for the echo server (change directory to folder docker)
+You can kill and stop via Ctrl-P Ctrl-Q and docker stop (see below).
+
+## build your own docker container image from github files ##
+
+build you own image with [Dockerfile](./docker/Dockerfile) [here](./docker) provided for the echo server (change directory to folder docker)
 
 	docker build -t simple-udpserver .
 	
@@ -56,7 +58,9 @@ see the following output:
 	Ncat: Listening on 0.0.0.0:11211
 	Ncat: Connection from 172.17.0.1.
 	Ncat: Connection from 172.17.0.1:59364.
-	
+
+## Start and Stop ##
+
 to detach from the server press Ctrl-P Ctrl-Q and stop server with 
 
 	docker stop <container id>
@@ -64,3 +68,9 @@ to detach from the server press Ctrl-P Ctrl-Q and stop server with
 	docker ps -a
 	
 will show all container images
+
+## Other commands ##
+
+You can overwrite command with the following syntax
+
+	docker run -it -p 11211:11211/udp simple-udpserver ncat -v -e /bin/bash -k -u -l 11212
