@@ -16,7 +16,7 @@ if you do not want to install ncat use the dockerized versions in docker hub htt
 
 	docker pull hellbruh/simple-udpserver
 	
-	docker run -it -p 11211:11211 hellbruh/simple-udpserver
+	docker run -it -p 11211:11211/udp hellbruh/simple-udpserver
 	
 you can kill and stop via Ctrl-P Ctrl-Q and docker stop (see below)
 
@@ -24,7 +24,7 @@ or build you own image with [Dockerfile](./docker/Dockerfile) [here](./docker) p
 
 	docker build -t simple-udpserver .
 	
-	docker run -it -p 11211:11211 simple-udpserver
+	docker run -it -p 11211:11211/udp simple-udpserver
 
 see the following output:
 
