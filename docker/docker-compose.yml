@@ -1,1 +1,4 @@
-
+version: '3'
+services:
+  udpserver:
+    image: hellbruh/simple-udpserver
